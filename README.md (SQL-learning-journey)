@@ -23,7 +23,7 @@ GROUP BY Region
 ORDER BY Regional_Sales DESC;
 
 Region Sales  Sales(%)
-West  2844450	 26.66%
+West   2844450	26.66%
 East	2675110	 25.08%
 South	2659548	 24.93%
 North	2488773	 23.33%
