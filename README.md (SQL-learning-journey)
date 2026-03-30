@@ -22,11 +22,11 @@ FROM ecommerce_sales_data
 GROUP BY Region
 ORDER BY Regional_Sales DESC;
 
-Region  Sales   Sales(%)
-West	  2844450	  26.66%
-East	  2675110	  25.08%
-South	 2659548	  24.93%
-North	 2488773	  23.33%
+Region Sales  Sales(%)
+West  2844450	 26.66%
+East	 2675110	 25.08%
+South	2659548	 24.93%
+North	2488773	 23.33%
 
 /*Based on the data, the Wester region recorded the highest total sales*/
 /* SO Businesses should consider expanding into Western markets, as they account for a significant 26.66% share of total sales*/
