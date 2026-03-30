@@ -1,0 +1,35 @@
+# SQL-learning-journey
+A hands-on SQL project focused on practicing data querying and analysis. As an Applied Economics student, I am currently enhancing my technical skills by applying SQL to real-world business 
+
+SQL Practice:  E-Commerce Business Analysis (2022–2024) dataset from kaggle (Zubaira Maimona) 
+ Question 1: Regional Sales Performance
+Problem: Identify the top-performing Region based on total Sales. What is the percentage of total sales contributed by each region?
+
+/*Total sales*/
+SELECT
+Sum (Sales)
+FROM  ecommerce_sales_data;
+
+Results:
+Sum of sales :10667881
+----------------------------------------------------------------
+/*To compare the total sales of each region against the overall sales (%)*/
+SELECT 
+    Region, 
+    SUM(Sales) AS Regional_Sales,
+    ROUND(SUM(Sales) * 100.0 / (SELECT SUM(Sales) FROM ecommerce_sales_data), 2) AS Sales_Percentage
+FROM ecommerce_sales_data
+GROUP BY Region
+ORDER BY Regional_Sales DESC;
+
+Region  Sales   Sales(%)
+West	 2844450	26.66%
+East	 2675110	25.08%
+South	 2659548	24.93%
+North	 2488773	23.33%
+
+/*Based on the data, the Wester region recorded the highest total sales*/
+/* SO Businesses should consider expanding into Western markets, as they account for a significant 26.66% share of total sales*/
+
+
+
