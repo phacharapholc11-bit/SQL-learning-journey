@@ -1,8 +1,9 @@
 # SQL-learning-journey
 A hands-on SQL project focused on practicing data querying and analysis. As an Applied Economics student, I am currently enhancing my technical skills by applying SQL to real-world business 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL Practice:  E-Commerce Business Analysis (2022–2024) dataset from kaggle (Zubaira Maimona) 
- Question 1: Regional Sales Performance
+ 
+   Question 1: Regional Sales Performance
 Problem: Identify the top-performing Region based on total Sales. What is the percentage of total sales contributed by each region?
 
 /*Total sales*/
@@ -10,9 +11,9 @@ SELECT
 Sum (Sales)
 FROM  ecommerce_sales_data;
 
-Results:
+   Results:
 Sum of sales :10667881
-----------------------------------------------------------------
+
 /*To compare the total sales of each region against the overall sales (%)*/
 SELECT 
     Region, 
@@ -30,6 +31,27 @@ North	2488773	 23.33%
 
 /*Based on the data, the Wester region recorded the highest total sales*/
 /* SO Businesses should consider expanding into Western markets, as they account for a significant 26.66% share of total sales*/
+
+   Question 2: Most Profitable Products
+/*Top 5 Most Profitablr Products (per_unit)*/
+SELECT 
+"Product Name",
+ ROUND(SUM(Profit) /sum(Quantity), 2) AS Profit_Per_Unit
+FROM ecommerce_sales_data
+GROUP by "Product Name"
+LIMIT 5;
+
+   Results:
+Product Profit_Per_Unit($/unit)
+Name
+Camera	115.67
+Headphones	107.53
+Keyboard	104.4
+Laptop	112.04
+Monitor	107.69
+
+/*So The business should prioritize camera sales, as they yield the highest unit profit among the top five products (Profit of Camera = 115.67 ($/unit))*/
+
 
 
 
