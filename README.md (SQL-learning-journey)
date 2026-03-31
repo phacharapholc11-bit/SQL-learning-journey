@@ -35,8 +35,8 @@ North	2488773	 23.33%
    Question 2: Most Profitable Products
 /*Top 5 Most Profitablr Products (per_unit)*/
 SELECT 
-"Product Name",
- ROUND(SUM(Profit) /sum(Quantity), 2) AS Profit_Per_Unit
+   "Product Name",
+    ROUND(SUM(Profit) /sum(Quantity), 2) AS Profit_Per_Unit
 FROM ecommerce_sales_data
 GROUP by "Product Name"
 LIMIT 5;
