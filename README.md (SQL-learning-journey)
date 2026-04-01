@@ -11,7 +11,7 @@ SELECT
 Sum (Sales)
 FROM  ecommerce_sales_data;
 
-   Results:
+   Results 1:
 Sum of sales :10667881
 
 /*To compare the total sales of each region against the overall sales (%)*/
@@ -41,7 +41,7 @@ FROM ecommerce_sales_data
 GROUP by "Product Name"
 LIMIT 5;
 
-   Results:
+   Results 2:
 Product Profit_Per_Unit($/unit)
 Name
 Camera	115.67
@@ -51,6 +51,25 @@ Laptop	112.04
 Monitor	107.69
 
 /*So The business should prioritize camera sales, as they yield the highest unit profit among the top five products (Profit of Camera = 115.67 ($/unit))*/
+
+   Question 3: Annual Sales Trend & Growth
+SELECT 
+    strftime('%Y', "Order Date") AS Sales_Year, -- (Note) We have daily and monthly 'Order Date' database, so we want to look at the growth trends of the E-commerce business (Year)
+    SUM(Sales) AS Total_Sales,                
+    COUNT("Order Date") AS Total_Orders,                 
+    ROUND(SUM(Profit), 2) AS Total_Profit      
+FROM ecommerce_sales_data
+GROUP BY Sales_Year                           
+ORDER BY Sales_Year ASC;     
+
+   Resultes 3:
+Year Total_  Total_Orders  Total_Profits
+     Sales
+2022	3255970	   1094	        572856.98
+2023	3786592   	1204	        666866.42
+2024	3625319	   1202	        604941.81
+
+/*So Based on the 2022-2024 data, we expect E-commerce to continue growing because sales are increasing every year*/
 
 
 
